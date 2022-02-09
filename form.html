@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css" />
+    <script src="validation.js"></script>
+    <title>Form</title>
+</head>
+<body>
+    <!--
+        Nombre
+        Apellidos
+        Teléfono
+        DNI
+        IBAN
+        Swift
+        nombre usuario
+        Fecha nacimiento
+    -->
+    <div>
+        <h1>Form</h1>
+        <form name="myForm" onsubmit="todoCorrecto()" action="exito.html">
+            Name: <input name="name" type="text" placeholder="Ex: María"> <br/>
+            Surname: <input name="surname" type="text" placeholder="Ex: León Pérez"> <br/>
+            Mail: <input name="mail" type="email" placeholder="EX: maria998827@gmail.com"> <br/>
+            Number: <input name="phone" type="text" placeholder="655 87 52 21"> <br/>
+            ID: <input name="dni" type="text"> <br/>
+            IBAN: <input name="iban" type="text" placeholder="XXXX XXXX XXXX XXXX XXXX XXXX"> <br/>
+            Swift/BIC: <input name="swift" type="text"> <br/> 
+            Username: <input name="username" type="text" placeholder="Ex: maria5446"> <br/>
+            Birthday: <input name="birth" type="date"> <br/><br/>
+            <input type="submit" value="Okey"/> 
+            <input type="reset" value="Cancel">
+        </form>
+    </div>
+</body>
+</html>
