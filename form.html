@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="form.css" />
-    <script src="validation.js"></script>
     <title>Form</title>
 </head>
+
 <body>
+    <script src="form.js"></script>
     <!--
         Nombre
         Apellidos
@@ -19,21 +21,78 @@
         nombre usuario
         Fecha nacimiento
     -->
-    <div>
-        <h1>Form</h1>
-        <form name="myForm" onsubmit="todoCorrecto()" action="exito.html">
-            Name: <input name="name" type="text" placeholder="Ex: María"> <br/>
-            Surname: <input name="surname" type="text" placeholder="Ex: León Pérez"> <br/>
-            Mail: <input name="mail" type="email" placeholder="EX: maria998827@gmail.com"> <br/>
-            Number: <input name="phone" type="text" placeholder="655 87 52 21"> <br/>
-            ID: <input name="dni" type="text"> <br/>
-            IBAN: <input name="iban" type="text" placeholder="XXXX XXXX XXXX XXXX XXXX XXXX"> <br/>
-            Swift/BIC: <input name="swift" type="text"> <br/> 
-            Username: <input name="username" type="text" placeholder="Ex: maria5446"> <br/>
-            Birthday: <input name="birth" type="date"> <br/><br/>
-            <input type="submit" value="Okey"/> 
-            <input type="reset" value="Cancel">
+    <div class="divForm">
+        <form class="myForm" autocomplete="on">
+            <table class="tableForm">
+                <th colspan="2">Sign up in the Newsletter.</th>
+                <tr>
+                    <td><label for="name">Name: </label></td>
+                    <td><input type="text" id="name" name="name" placeholder="Ex. María" required="required"
+                            maxlength="15"></td>
+                </tr>
+                <tr>
+                    <td><label for="surname">Surname: </label></td>
+                    <td><input type="text" id="surname" name="surname" placeholder="Ex. León Pérez" required="required"
+                            maxlength="30"></td>
+                </tr>
+                <tr>
+                    <td><label for="mail">Mail: </label></td>
+                    <td><input type="text" id="mail" name="mail" placeholder="Ex. yourmail@gmail.com"
+                            required="required" maxlength="40" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Number: </label></td>
+                    <td><input type="tel" id="phone" name="phone" placeholder="000 000 000" required="required" pattern=" [0-9]{3} [ ]? [0-9]{2} [ ]? [0-9]{1} [ ]? [0-9]{1} [ ]? [0-9]{2}"
+                            ></td>
+                </tr>
+                <tr>
+                    <td><label for="id">ID: </label></td>
+                    <td><input type="text" id="id" name="id" placeholder="00000000X" autocomplete="off"
+                            required="required" maxlength="9" pattern="[0-9]{8}[A-Za-z]{1}"></td>
+                </tr>
+                <tr>
+                    <td><label for="iban">IBAN: </label></td>
+                    <td><input type="text" id="iban" name="iban" autocomplete="off"
+                            placeholder="ES00 0000 0000 0000 0000 0000" required="required" maxlength="15"></td>
+                </tr>
+                <tr>
+                    <td><label for="swift">Swift: </label></td>
+                    <td><input type="text" id="swift" name="swift" placeholder="AAAABBCC123"
+                            pattern="[A-Za-z]{8}[0-9]{3}" autocomplete="off" required="required" maxlength="11"></td>
+                </tr>
+                <tr>
+                    <td><label for="username">Username: </label></td>
+                    <td><input type="text" id="username" name="username" placeholder="Ex. maria347293"
+                            required="required" maxlength="30" minlength="4"></td>
+                </tr>
+                
+                <tr>
+                    <td><label for="birthDate">Birth Date: </label></td>
+                    <td><input type="date" id="birthDate" name="birthDate" required="required"  max=""></td>
+                </tr>
+                <script>
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth() + 1; 
+                    var yyyy = today.getFullYear();
+
+                    if (dd < 10) {
+                        dd = '0' + dd;
+                    }
+
+                    if (mm < 10) {
+                        mm = '0' + mm;
+                    }
+
+                    today = yyyy + '-' + mm + '-' + dd;
+                    document.getElementById("birthDate").setAttribute("max", today);
+                </script>
+
+            </table>
+            <p><input type="reset" value="Reset" class="res" /><input type="submit" value="Submit" class="sub" /></p>
         </form>
     </div>
+
 </body>
+
 </html>
