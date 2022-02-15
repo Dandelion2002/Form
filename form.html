@@ -22,7 +22,7 @@
         Fecha nacimiento
     -->
     <div class="divForm">
-        <form class="myForm" autocomplete="on">
+        <form class="myForm" autocomplete="on" onsubmit="validateForm()">
             <table class="tableForm">
                 <th colspan="2">Sign up in the Newsletter.</th>
                 <tr>
@@ -42,7 +42,7 @@
                 </tr>
                 <tr>
                     <td><label for="phone">Number: </label></td>
-                    <td><input type="tel" id="phone" name="phone" placeholder="000 000 000" required="required" pattern=" [0-9]{3} [ ]? [0-9]{2} [ ]? [0-9]{1} [ ]? [0-9]{1} [ ]? [0-9]{2}"
+                    <td><input type="tel" id="phone" name="phone" placeholder="000 000 000" required="required" maxlength="9" pattern="[0-9]{9}"
                             ></td>
                 </tr>
                 <tr>
@@ -53,7 +53,7 @@
                 <tr>
                     <td><label for="iban">IBAN: </label></td>
                     <td><input type="text" id="iban" name="iban" autocomplete="off"
-                            placeholder="ES00 0000 0000 0000 0000 0000" required="required" maxlength="15"></td>
+                            placeholder="ES0000000000000000000000" required="required" maxlength="48" pattern="[Ee]{1}[Ss]{1}[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}"></td>
                 </tr>
                 <tr>
                     <td><label for="swift">Swift: </label></td>
@@ -89,7 +89,7 @@
                 </script>
 
             </table>
-            <p><input type="reset" value="Reset" class="res" /><input type="submit" value="Submit" class="sub" /></p>
+            <p><input type="reset" value="Reset" class="res" /><input id="continue" type="submit" value="Submit" class="sub"/></p>
         </form>
     </div>
 
